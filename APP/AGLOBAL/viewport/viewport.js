@@ -23,6 +23,7 @@ Ext.define('APP.AGLOBAL.viewport.viewport', {
             width: 280,
             title: 'Menu',
             collapsible: true,
+            floatable: false,
             useArrows: true,
             rootVisible: false,
             store: {

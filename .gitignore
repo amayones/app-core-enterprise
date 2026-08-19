@@ -1,0 +1,72 @@
+# =====================================================================
+# .gitignore — app-core-enterprise
+# Berlaku untuk root (frontend) + apservice/ (Laravel backend)
+# apservice/.gitignore sudah menangani ignore khusus Laravel.
+# =====================================================================
+
+# --- Ext JS SDK (668 MB, di-install terpisah lihat README) ---
+ext/
+
+# --- Node / npm ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.yarn/
+
+# --- Composer (Laravel vendor, sudah di-ignore oleh apservice/.gitignore) ---
+apservice/vendor/
+apservice/composer.phar
+apservice/composer.lock
+
+# --- Build artifacts ---
+apservice/public/build/
+apservice/public/hot
+apservice/public/storage
+dist/
+build/
+
+# --- Environment / secrets ---
+apservice/.env
+apservice/.env.*
+apservice/.auth.json
+apservice/auth.json
+
+# --- Runtime / cache ---
+apservice/storage/*.key
+apservice/storage/pail
+apservice/storage/framework/cache/*
+apservice/storage/framework/sessions/*
+apservice/storage/framework/views/*
+apservice/storage/logs/*
+apservice/bootstrap/cache/*.php
+apservice/bootstrap/cache/*.json
+
+# --- Testing ---
+apservice/.phpunit.cache/
+apservice/.phpunit.result.cache
+apservice/.phpunit.xml.cache
+
+# --- IDE & editor ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.launch.json
+.zed/
+.cursor/
+
+# --- OS ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini

@@ -148,7 +148,7 @@ Ext.define('APP.AGLOBAL.viewport.Cviewport', {
 
                             me.getView().destroy();
 
-                            me.getApplication().showLogin();
+                            Ext.getApplication().showLogin();
                         } else {
                             COMP.TipToast.error(res.message || 'Gagal logout.');
                         }

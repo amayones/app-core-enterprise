@@ -1,8 +1,6 @@
 /**
  * File: APP/AGLOBAL/viewport/viewport.js
  * Class: APP.AGLOBAL.viewport.viewport
- * (AGLOBAL = modul infrastruktur global, bukan modul bisnis biasa,
- *  tapi tetap ikut konvensi folder MODULE/CONTROL/CONTROL.js yang sama)
  */
 Ext.define('APP.AGLOBAL.viewport.viewport', {
     extend: 'Ext.container.Viewport',
@@ -15,6 +13,9 @@ Ext.define('APP.AGLOBAL.viewport.viewport', {
 
     layout: 'border',
 
+    // samakan tinggi header di seluruh viewport
+    headerHeight: 34,
+
     items: [
         {
             xtype: 'treepanel',
@@ -24,16 +25,11 @@ Ext.define('APP.AGLOBAL.viewport.viewport', {
             title: 'Menu',
             collapsible: true,
             floatable: false,
-            header: {
-                items: [{
-                    xtype: 'button',
-                    text: 'Logout',
-                    iconCls: 'x-fa fa-sign-out',
-                    handler: 'onLogoutClick'
-                }]
-            },
             useArrows: true,
             rootVisible: false,
+            header: {
+                height: 50
+            },
             store: {
                 type: 'tree',
                 root: { expanded: true, children: [] }
@@ -45,7 +41,30 @@ Ext.define('APP.AGLOBAL.viewport.viewport', {
         {
             xtype: 'tabpanel',
             itemId: 'mainTabPanel',
-            region: 'center'
+            region: 'center',
+
+            tabBar: {
+                height: 50, 
+                layout: {
+                    type: 'hbox',
+                    align: 'middle',
+                    pack: 'start'
+                },
+                items: [
+                    {
+                        xtype: 'component',
+                        flex: 1
+                    },
+                    {
+                        xtype: 'button',
+                        text: '',
+                        iconCls: 'x-fa fa-sign-out',
+                        handler: 'onLogoutClick',
+                        margin: '0 8 0 0' ,
+                        padding: 4
+                    }
+                ]
+            }
         }
     ],
 

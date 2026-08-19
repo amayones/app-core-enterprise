@@ -122,5 +122,41 @@ Ext.define('APP.AGLOBAL.viewport.Cviewport', {
             Ext.getBody().unmask();
             COMP.TipToast.error('Gagal memuat modul "' + className + '". Cek apakah file-nya ada.');
         });
+    },
+
+    /**
+     * Logout: panggil API /logout (hapus JWT cookie),
+     * lalu hancurkan viewport dan kembali ke form login.
+     */
+    onLogoutClick: function () {
+        var me = this;
+
+        Ext.Msg.confirm(
+            'Konfirmasi',
+            'Anda yakin ingin keluar?',
+            function (btn) {
+                if (btn !== 'yes') {
+                    return;
+                }
+
+                COMP.run.getservice(
+                    vconfig.service_api + 'logout',
+                    {},
+                    function (res) {
+                        if (res.success) {
+                            COMP.TipToast.info('Anda berhasil keluar.');
+
+                            me.getView().destroy();
+
+                            me.getApplication().showLogin();
+                        } else {
+                            COMP.TipToast.error(res.message || 'Gagal logout.');
+                        }
+                    },
+                    me,
+                    false  // tidak perlu loading mask — operasi cepat
+                );
+            }
+        );
     }
 });

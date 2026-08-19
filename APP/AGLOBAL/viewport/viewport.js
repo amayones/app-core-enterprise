@@ -24,6 +24,14 @@ Ext.define('APP.AGLOBAL.viewport.viewport', {
             title: 'Menu',
             collapsible: true,
             floatable: false,
+            header: {
+                items: [{
+                    xtype: 'button',
+                    text: 'Logout',
+                    iconCls: 'x-fa fa-sign-out',
+                    handler: 'onLogoutClick'
+                }]
+            },
             useArrows: true,
             rootVisible: false,
             store: {

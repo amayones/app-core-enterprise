@@ -188,6 +188,12 @@ Karena sistem bersifat **konvensional**, menambah modul baru sangat cepat:
 
 ---
 
+## 🔓 Logout
+
+Setiap viewport dilengkapi **tombol Logout** di header sidebar (kiri atas). Klik → konfirmasi → panggil `POST /api/logout` (hapus JWT cookie) → viewport dihancurkan → kembali ke form login.
+
+---
+
 ## 🧪 Testing
 
 ```bash
